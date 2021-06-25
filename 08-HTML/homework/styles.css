@@ -15,3 +15,9 @@
 img {
   width: 400px;
 }
+
+body {
+  display: flexbox;
+  display: -ms-flexbox;
+  justify-content: center;
+}
