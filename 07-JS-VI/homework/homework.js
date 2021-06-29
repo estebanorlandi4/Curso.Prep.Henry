@@ -28,11 +28,8 @@ function sumarArray(numeros, cb) {
   // Pasa el resultado a `cb`
   // No es necesario devolver nada
   //Tu código:
-  let res = numeros.reduce((a, b) => {
-    return a + b;
-  });
 
-  cb(res);
+  cb(numeros.reduce((a, b) => a + b));
 }
 
 function forEach(array, cb) {

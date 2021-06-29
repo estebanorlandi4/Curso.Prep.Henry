@@ -1,7 +1,7 @@
 // Reverse string method
 String.prototype.reverse = function () {
   let res = "";
-  for (let i = this.valueOf().length - 1; i >= 0; i--) {
+  for (let i = this.valueOf().length - 1; i > -1; i--) {
     res += this.valueOf()[i];
   }
   return res;
@@ -31,10 +31,8 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
   //Escribe tu código aquí
-  const res = {};
-
   string = string.split("");
-
+  const res = {};
   for (let i = 0; i < string.length; i++) {
     if (res[string[i]] !== undefined) {
       res[string[i]]++;
@@ -53,9 +51,7 @@ function capToFront(s) {
 
   // Comprobar si es minuscula
   let isLower = function (letter) {
-    let aux = letter.toUpperCase();
-    if (letter !== aux) return true;
-    return false;
+    return letter !== letter.toUpperCase();
   };
 
   let lower = [];
@@ -77,7 +73,6 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
-
   str = str.split(" ");
   for (let i = 0; i < str.length; i++) {
     str[i] = str[i].reverse();
@@ -90,11 +85,8 @@ function capicua(numero) {
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
-
   numero = numero.toString();
-  let reversedNum = numero.reverse();
-
-  if (numero === reversedNum) return "Es capicua";
+  if (numero === numero.reverse()) return "Es capicua";
   return "No es capicua";
 }
 
@@ -102,14 +94,11 @@ function deleteAbc(cadena) {
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
-
-  let res = [];
-
-  for (let i = 0; i < cadena.length; i++) {
-    if (cadena[i] !== "a" && cadena[i] !== "b" && cadena[i] !== "c")
-      res.push(cadena[i]);
-  }
-  return res.join("");
+  const ignore = ["a", "b", "c"];
+  return cadena
+    .split("")
+    .filter((ch) => !ignore.includes(ch))
+    .join("");
 }
 
 function sortArray(arr) {

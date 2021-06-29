@@ -59,10 +59,8 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] === elemento) return true;
-  }
-  return false;
+
+  return array.includes(elemento);
 }
 
 function agregarNumeros(numeros) {
@@ -138,9 +136,7 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  n = n.toString();
-  if (n[0] == "9") return true;
-  return false;
+  return n.toString()[0] === "9";
 }
 
 function todosIguales(arreglo) {
@@ -168,7 +164,7 @@ function mesesDelAño(array) {
     )
       res.push(array[i]);
   }
-  if (res.length < 3) return "No se encontraron los meses pedidos";
+  if (res.length !== 3) return "No se encontraron los meses pedidos";
   return res;
 }
 
@@ -192,18 +188,13 @@ function breakStatement(numero) {
   //Pista: usá el statement 'break'
   // Tu código:
   let res = [];
-  let br = false;
   for (let i = 0; i < 10; i++) {
     if (numero === i) {
-      br = true;
       break;
     }
-    numero += 2;
-    res.push(numero);
+    res.push((numero += 2));
   }
-  if (br) {
-    return "Se interrumpió la ejecución";
-  }
+  if (res.length < 10) return "Se interrumpió la ejecución";
   return res;
 }
 
@@ -217,8 +208,7 @@ function continueStatement(numero) {
   let res = [];
   for (let i = 0; i < 10; i++) {
     if (i === 5) continue;
-    numero += 2;
-    res.push(numero);
+    res.push((numero += 2));
   }
   return res;
 }

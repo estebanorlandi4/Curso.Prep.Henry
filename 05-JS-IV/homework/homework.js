@@ -6,14 +6,11 @@ function crearGato(nombre, edad) {
   // Agrega un método (funcion) llamado "meow" que devuelva el string "Meow!"
   // Devuelve el objeto
   // Tu código:
-  let gato = {
+  return {
     nombre,
     edad,
-    meow: function () {
-      return "Meow!";
-    },
+    meow: () => "Meow!",
   };
-  return gato;
 }
 
 function agregarPropiedad(objeto, property) {
@@ -53,12 +50,11 @@ function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
   // Devuelve el objeto
   // Tu código:
-  const user = {
+  return {
     nombre,
     email,
     password,
   };
-  return user;
 }
 
 function tieneEmail(usuario) {
@@ -83,8 +79,7 @@ function verificarPassword(usuario, password) {
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
   // // Tu código:
-  if (usuario.password === password) return true;
-  return false;
+  return usuario.password === password;
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
@@ -141,8 +136,7 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
   producto["calcularPrecioDescuento"] = function () {
-    this.precio -= this.precio * this.porcentajeDeDescuento;
-    return this.precio;
+    return this.precio - this.precio * this.porcentajeDeDescuento;
   };
   return producto;
 }
